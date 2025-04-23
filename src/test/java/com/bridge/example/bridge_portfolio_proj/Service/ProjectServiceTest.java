@@ -66,6 +66,10 @@ public class ProjectServiceTest {
         when(projectRepository.save(any(Project.class))).thenReturn(updated);
         Project result = projectService.updateProject(1L, updated);
         assertThat(result.getTitle()).isEqualTo("Website1.1");
+        assertThat(result.getDescription()).isEqualTo("Update Desc");
+        assertThat(result.getRating()).isEqualTo(5.0);
+        assertThat(result.getCreatedAt()).isEqualTo("2024-04-08T14:30:00Z");
+        assertThat(result.getDurationDays()).isEqualTo(14);
     }
 
     @Test
