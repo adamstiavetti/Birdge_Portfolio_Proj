@@ -32,6 +32,9 @@ public class ProjectService {
         Project project = projectRepository.findById(id).orElseThrow();
         project.setTitle(updatedProject.getTitle());
         project.setDescription(updatedProject.getDescription());
+        project.setRating(updatedProject.getRating());
+        project.setCreatedAt(updatedProject.getCreatedAt());
+        project.setDurationDays(updatedProject.getDurationDays());
         return projectRepository.save(project);
     }
 

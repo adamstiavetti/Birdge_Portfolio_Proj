@@ -68,6 +68,7 @@ public class ProjectControllerTest {
         mockMvc.perform(get("/api/projects/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title").value("Website1"));
+        verify(projectService).getProjectById(1L);
     }
 
     @Test
@@ -79,6 +80,7 @@ public class ProjectControllerTest {
                 .content(objectMapper.writeValueAsString(updated)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.title").value("Updated"));
+        verify(projectService).updateProject(1L, );
     }
 
     @Test
